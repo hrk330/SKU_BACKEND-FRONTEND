@@ -29,8 +29,11 @@ class ApiClient {
   private client: AxiosInstance;
 
   constructor() {
+    // Auto-detect environment and set appropriate API URL
+    const apiUrl = this.getApiUrl();
+    
     this.client = axios.create({
-      baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001/api/v1',
+      baseURL: apiUrl,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -74,6 +77,26 @@ class ApiClient {
         return Promise.reject(error);
       }
     );
+  }
+
+  // Environment detection and API URL configuration
+  private getApiUrl(): string {
+    // Check if we're in the browser
+    if (typeof window !== 'undefined') {
+      // In browser - check current hostname
+      const hostname = window.location.hostname;
+      
+      // If accessing from localhost, use local backend
+      if (hostname === 'localhost' || hostname === '127.0.0.1') {
+        return process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001/api/v1';
+      }
+      
+      // If accessing from deployed frontend, use deployed backend
+      return 'https://web-production-f698.up.railway.app/api/v1';
+    }
+    
+    // Server-side rendering - use environment variable or default to local
+    return process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001/api/v1';
   }
 
   // Token management

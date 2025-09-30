@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
   outputFileTracingRoot: __dirname,
   experimental: {
     optimizePackageImports: ['@tanstack/react-query', '@tanstack/react-query-devtools'],
