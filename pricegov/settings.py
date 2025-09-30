@@ -208,11 +208,12 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-# Cache Configuration - Use Redis if available, otherwise use database
-REDIS_URL = env('REDIS_URL', default=None)
+# Cache Configuration - Use database by default, Redis only if explicitly configured
+USE_REDIS = env('USE_REDIS', default=False, cast=bool)
 
-if REDIS_URL:
+if USE_REDIS:
     # Use Redis for caching and sessions
+    REDIS_URL = env('REDIS_URL', default='redis://127.0.0.1:6379/1')
     CACHES = {
         'default': {
             'BACKEND': 'django_redis.cache.RedisCache',
@@ -225,7 +226,7 @@ if REDIS_URL:
     SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
     SESSION_CACHE_ALIAS = 'default'
 else:
-    # Fallback to database for caching and sessions
+    # Use database for caching and sessions (default for deployment)
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
