@@ -297,3 +297,10 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
 ]
+
+# CSRF Trusted Origins for Django Admin
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-f698.up.railway.app",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
