@@ -23,8 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy project
 COPY . /app/
 
-# Collect static files
+# Collect static files and run migrations
 RUN python manage.py collectstatic --noinput
+RUN python manage.py migrate --noinput
 
 # Create a non-root user
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
