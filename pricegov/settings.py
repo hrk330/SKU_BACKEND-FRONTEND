@@ -279,6 +279,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
     "http://192.168.0.188:3000",
+    "https://web-production-f698.up.railway.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
