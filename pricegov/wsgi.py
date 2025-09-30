@@ -11,10 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-# Use production settings for Vercel deployment
-if os.environ.get('VERCEL'):
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pricegov.production_settings')
-else:
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pricegov.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pricegov.settings')
 
 application = get_wsgi_application()
