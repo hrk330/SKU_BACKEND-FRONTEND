@@ -1,0 +1,37 @@
+INFO 2025-09-29 16:30:35,782 autoreload 10380 22420 Watching for file changes with StatReloader
+INFO 2025-09-29 16:30:49,718 autoreload 10380 22420 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\views.py changed, reloading.
+INFO 2025-09-29 16:30:50,878 autoreload 17500 21776 Watching for file changes with StatReloader
+INFO 2025-09-29 16:30:54,044 autoreload 17500 21776 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\views.py changed, reloading.
+INFO 2025-09-29 16:30:55,204 autoreload 21236 16388 Watching for file changes with StatReloader
+INFO 2025-09-29 16:31:51,192 autoreload 21236 16388 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 16:31:52,369 autoreload 1736 18312 Watching for file changes with StatReloader
+INFO 2025-09-29 16:32:05,322 autoreload 1736 18312 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 16:32:06,687 autoreload 18280 16208 Watching for file changes with StatReloader
+INFO 2025-09-29 16:33:19,428 basehttp 18280 3944 "POST /api/v1/token/ HTTP/1.1" 200 483
+WARNING 2025-09-29 16:33:20,935 log 18280 21256 Bad Request: /api/v1/pricing/published-prices/
+WARNING 2025-09-29 16:33:20,935 basehttp 18280 21256 "POST /api/v1/pricing/published-prices/ HTTP/1.1" 400 48
+INFO 2025-09-29 16:33:26,687 autoreload 18280 16208 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 16:33:28,499 autoreload 17172 21856 Watching for file changes with StatReloader
+INFO 2025-09-29 16:33:33,144 autoreload 17172 21856 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 16:33:34,490 autoreload 15764 20956 Watching for file changes with StatReloader
+INFO 2025-09-29 16:34:00,816 autoreload 15764 20956 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 16:34:03,391 autoreload 19260 18392 Watching for file changes with StatReloader
+INFO 2025-09-29 16:56:49,009 autoreload 7976 17108 Watching for file changes with StatReloader
+INFO 2025-09-29 16:57:08,633 autoreload 7976 17108 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\districts\admin.py changed, reloading.
+INFO 2025-09-29 16:57:10,000 autoreload 9800 15980 Watching for file changes with StatReloader
+INFO 2025-09-29 17:10:08,767 autoreload 9800 15980 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 17:10:09,908 autoreload 22656 20068 Watching for file changes with StatReloader
+INFO 2025-09-29 17:10:14,186 autoreload 22656 20068 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 17:10:15,345 autoreload 20932 18708 Watching for file changes with StatReloader
+INFO 2025-09-29 17:10:28,441 autoreload 20932 18708 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\models.py changed, reloading.
+INFO 2025-09-29 17:10:29,855 autoreload 10784 4612 Watching for file changes with StatReloader
+INFO 2025-09-29 17:10:38,572 autoreload 10784 4612 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\models.py changed, reloading.
+INFO 2025-09-29 17:10:39,791 autoreload 15408 5164 Watching for file changes with StatReloader
+INFO 2025-09-29 17:13:06,630 autoreload 15408 5164 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\views.py changed, reloading.
+INFO 2025-09-29 17:13:08,210 autoreload 22600 21124 Watching for file changes with StatReloader
+INFO 2025-09-29 17:13:19,345 autoreload 22600 21124 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\views.py changed, reloading.
+INFO 2025-09-29 17:13:21,065 autoreload 15436 12656 Watching for file changes with StatReloader
+INFO 2025-09-29 17:15:21,957 autoreload 15436 12656 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\models.py changed, reloading.
+INFO 2025-09-29 17:15:23,470 autoreload 20356 21512 Watching for file changes with StatReloader
+INFO 2025-09-29 17:15:32,557 autoreload 20356 21512 C:\Users\hp\Documents\VS Code\SKU System Backend\apps\pricing\serializers.py changed, reloading.
+INFO 2025-09-29 17:15:33,891 autoreload 19420 20420 Watching for file changes with StatReloader

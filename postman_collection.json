@@ -1,0 +1,478 @@
+{
+    "info": {
+        "name": "Fertilizer Price Regulation API",
+        "description": "API collection for fertilizer price regulation backend",
+        "version": "1.0.0",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "auth": {
+        "type": "bearer",
+        "bearer": [
+            {
+                "key": "token",
+                "value": "{{access_token}}",
+                "type": "string"
+            }
+        ]
+    },
+    "variable": [
+        {
+            "key": "base_url",
+            "value": "http://localhost:8000/api/v1",
+            "type": "string"
+        },
+        {
+            "key": "access_token",
+            "value": "",
+            "type": "string"
+        },
+        {
+            "key": "refresh_token",
+            "value": "",
+            "type": "string"
+        }
+    ],
+    "item": [
+        {
+            "name": "Authentication",
+            "item": [
+                {
+                    "name": "Register User",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"username\": \"testuser\",\n  \"email\": \"test@example.com\",\n  \"phone\": \"+1234567890\",\n  \"first_name\": \"Test\",\n  \"last_name\": \"User\",\n  \"role\": \"farmer\",\n  \"password\": \"testpass123\",\n  \"password_confirm\": \"testpass123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/auth/register/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "register",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login",
+                    "event": [
+                        {
+                            "listen": "test",
+                            "script": {
+                                "exec": [
+                                    "if (pm.response.code === 200) {",
+                                    "    const response = pm.response.json();",
+                                    "    pm.collectionVariables.set('access_token', response.tokens.access);",
+                                    "    pm.collectionVariables.set('refresh_token', response.tokens.refresh);",
+                                    "}"
+                                ]
+                            }
+                        }
+                    ],
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"retailer@example.com\",\n  \"password\": \"retailer123\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/auth/login/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "auth",
+                                "login",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Refresh Token",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"refresh\": \"{{refresh_token}}\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/token/refresh/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "token",
+                                "refresh",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Districts",
+            "item": [
+                {
+                    "name": "List Districts",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/districts/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "districts",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get District Tree",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/districts/tree/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "districts",
+                                "tree",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Catalog",
+            "item": [
+                {
+                    "name": "List SKUs",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/catalog/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "catalog",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get SKU Detail",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/catalog/1/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "catalog",
+                                "1",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Retailers",
+            "item": [
+                {
+                    "name": "Create Retailer Profile",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"license_no\": \"LIC123\",\n  \"business_name\": \"My Retail Store\",\n  \"district\": 1,\n  \"address\": \"123 Main Street, Sample District\",\n  \"contact_person\": \"John Doe\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/retailers/create-profile/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "retailers",
+                                "create-profile",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Retailer Profile",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/retailers/profile/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "retailers",
+                                "profile",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Pricing",
+            "item": [
+                {
+                    "name": "Create Reference Price (Admin Only)",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"sku\": 1,\n  \"district_id\": null,\n  \"price\": \"1200.00\",\n  \"effective_from\": \"2025-01-01T00:00:00Z\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/pricing/reference-prices/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "pricing",
+                                "reference-prices",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Reference Prices",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/pricing/reference-prices/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "pricing",
+                                "reference-prices",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Create Published Price",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"sku\": 1,\n  \"price\": \"1250.00\",\n  \"effective_from\": \"2025-01-01T00:00:00Z\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/pricing/published-prices/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "pricing",
+                                "published-prices",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Published Prices",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/pricing/published-prices/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "pricing",
+                                "published-prices",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Price Audit (Admin Only)",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/pricing/audit/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "pricing",
+                                "audit",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Farmer API",
+            "item": [
+                {
+                    "name": "Get Farmer Price Query",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/farmer/prices/?sku=1&district=1",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "farmer",
+                                "prices",
+                                ""
+                            ],
+                            "query": [
+                                {
+                                    "key": "sku",
+                                    "value": "1"
+                                },
+                                {
+                                    "key": "district",
+                                    "value": "1"
+                                }
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Complaints",
+            "item": [
+                {
+                    "name": "Create Complaint",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"title\": \"High fertilizer prices\",\n  \"description\": \"The fertilizer prices in my area are too high compared to the reference prices.\",\n  \"district\": 1,\n  \"sku\": 1,\n  \"priority\": \"medium\"\n}"
+                        },
+                        "url": {
+                            "raw": "{{base_url}}/complaints/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "complaints",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "List Complaints",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "{{base_url}}/complaints/",
+                            "host": [
+                                "{{base_url}}"
+                            ],
+                            "path": [
+                                "complaints",
+                                ""
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

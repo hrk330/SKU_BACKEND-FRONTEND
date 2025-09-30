@@ -1,0 +1,56 @@
+[
+    {
+        "model": "districts.district",
+        "pk": 1,
+        "fields": {
+            "name": "Sample District",
+            "code": "SD001",
+            "parent": null,
+            "is_active": true,
+            "created_at": "2025-01-01T00:00:00Z",
+            "updated_at": "2025-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalog.sku",
+        "pk": 1,
+        "fields": {
+            "code": "U001",
+            "name": "Urea 46-0-0",
+            "manufacturer": "Fertilizer Corp",
+            "pack_size_kg": "50.00",
+            "description": "High quality urea fertilizer with 46% nitrogen content",
+            "is_active": true,
+            "created_at": "2025-01-01T00:00:00Z",
+            "updated_at": "2025-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalog.sku",
+        "pk": 2,
+        "fields": {
+            "code": "D001",
+            "name": "DAP 18-46-0",
+            "manufacturer": "Agro Solutions",
+            "pack_size_kg": "50.00",
+            "description": "Diammonium phosphate fertilizer with 18% nitrogen and 46% phosphorus",
+            "is_active": true,
+            "created_at": "2025-01-01T00:00:00Z",
+            "updated_at": "2025-01-01T00:00:00Z"
+        }
+    },
+    {
+        "model": "catalog.sku",
+        "pk": 3,
+        "fields": {
+            "code": "P001",
+            "name": "Potash 0-0-60",
+            "manufacturer": "Minerals Ltd",
+            "pack_size_kg": "50.00",
+            "description": "Potassium chloride fertilizer with 60% potassium content",
+            "is_active": true,
+            "created_at": "2025-01-01T00:00:00Z",
+            "updated_at": "2025-01-01T00:00:00Z"
+        }
+    }
+]
