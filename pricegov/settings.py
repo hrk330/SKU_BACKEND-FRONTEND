@@ -36,7 +36,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS') + ['.onrender.com']
+ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS') + ['.onrender.com', '.up.railway.app', 'web-production-f698.up.railway.app']
 
 # Application definition
 DJANGO_APPS = [
