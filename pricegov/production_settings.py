@@ -13,11 +13,19 @@ DEBUG = False
 SECRET_KEY = os.environ.get('SECRET_KEY', 'your-secret-key-here')
 
 # Database
-DATABASES = {
-    'default': dj_database_url.parse(
-        os.environ.get('DATABASE_URL', 'postgresql://user:password@localhost/dbname')
-    )
-}
+DATABASE_URL = os.environ.get('DATABASE_URL')
+if DATABASE_URL:
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    # Fallback to SQLite for development
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
